@@ -1,0 +1,25 @@
+[color]
+    ui = auto
+[color "branch"]
+    current = red
+    local = yellow
+    remote = green
+[color "diff"]
+    meta = cyan
+    frag = magenta
+    old = red bold
+    new = green bold
+[color "status"]
+    added = yellow
+    changed = green
+    untracked = cyane
+[http]
+	sslVerify = false
+[alias]
+	st = status --short
+	pl = pull
+	ps = push
+	ci = commit
+	co = checkout
+	df = diff
+	lg = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
