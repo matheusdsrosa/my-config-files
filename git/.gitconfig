@@ -1,0 +1,15 @@
+[user]
+	name = "Matheus Rosa" 
+	email = "matheusdsrosa@gmail.com"
+[color]
+	ui = true
+[http]
+	sslVerify = false
+[alias]
+	st = status --short
+	pl = pull
+	ps = push
+	ci = commit
+	co = checkout
+	df = diff
+	lg = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit

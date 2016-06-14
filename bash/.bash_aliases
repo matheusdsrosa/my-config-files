@@ -1,8 +1,9 @@
 # Personal shortcuts
-alias e="cd ~/Virtualenvs"
+alias e="cd ~/.virtualenvs"
 alias p="cd ~/Projects"
 alias v="vim"
 alias sublime="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
+
 # Easier file & directory listing
 alias l='ls -CF' # directories and files in columns
 alias la='ls -A' # directories and files incl. hidden in columns
