@@ -2,7 +2,7 @@
 alias e="cd ~/.virtualenvs"
 alias p="cd ~/Projects"
 alias v="vim"
-alias sublime="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
+alias evimrc="vim ~/.vimrc"
 
 # Easier file & directory listing
 alias l='ls -CF' # directories and files in columns
@@ -14,15 +14,6 @@ alias lhf='ls -A | grep "^\."' # only hidden directories and files as a list
 # Easier nagivation
 alias ..="cd ../"
 alias ...="cd ../.."
-
-# Git related shortcuts
-alias g="git"
-alias ga="git add ."
-alias gst="git status"
-alias gps="git push"
-alias gpl="git pull"
-alias gc="git commit"
-alias gl="git log"
 
 # Always use color output for `ls`
 if [[ "$OSTYPE" =~ ^darwin ]]; then

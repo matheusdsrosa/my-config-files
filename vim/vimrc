@@ -16,16 +16,49 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'vim-scripts/indentpython.vim'
 Bundle 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/syntastic'
-Plugin 'nvie/vim-flake8'
-Plugin 'jnurmine/Zenburn'
-Plugin 'altercation/vim-colors-solarized'
+" Plugin 'nvie/vim-flake8'
 Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
 Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+Bundle 'ervandew/supertab'
+Plugin 'hdima/python-syntax'
+Plugin 'airblade/vim-gitgutter'
+
+" Track the engine.
+Plugin 'SirVer/ultisnips'
+
+" Themes
+Plugin 'whatyouhide/vim-gotham'
+Plugin 'sickill/vim-monokai'
+Plugin 'flazz/vim-colorschemes'
+
+" Snippets are separated from the engine. Add this if you want them:
+Plugin 'honza/vim-snippets'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
+
+
+" Syntastic recommend configs
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 0
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_save = 0
+let g:syntastic_check_on_wq = 0
+
+" YouCompleteMe and UltiSnips compatibility, with the helper of supertab (via http://stackoverflow.com/a/22253548/1626737)
+let g:SuperTabDefaultCompletionType    = '<C-n>'
+let g:SuperTabCrMapping                = 0
+let g:UltiSnipsExpandTrigger           = '<tab>'
+let g:UltiSnipsJumpForwardTrigger      = '<tab>'
+let g:UltiSnipsJumpBackwardTrigger     = '<s-tab>'
+let g:ycm_key_list_select_completion   = ['<C-j>', '<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-k>', '<C-p>', '<Up>']
 
 " split navigations
 nnoremap <C-J> <C-W><C-J> " Ctrl-j move to the split below
@@ -50,7 +83,7 @@ nnoremap <space> za
 au BufNewFile,BufRead *.py set tabstop=4
 au BufNewFile,BufRead *.py set softtabstop=4
 au BufNewFile,BufRead *.py set shiftwidth=4
-au BufNewFile,BufRead *.py set textwidth=79
+au BufNewFile,BufRead *.py set textwidth=100
 au BufNewFile,BufRead *.py set expandtab
 au BufNewFile,BufRead *.py set autoindent
 au BufNewFile,BufRead *.py set fileformat=unix
@@ -90,26 +123,10 @@ EOF
 
 " Syntax highlighting for Python
 let python_highlight_all=1
-syntax on
 
-colorscheme onedark
+syntax enable
+
+colorscheme glacier
 
 " Ignore *.pyc files in NERDTree
 let NERDTreeIgnore=['\.pyc$', '\~$']
-
-"Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
-""If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
-"(see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more
-"information.)
-if (empty($TMUX))
-  if (has("nvim"))
-  "For Neovim 0.1.3 and 0.1.4 <https://github.com/neovim/neovim/pull/2198 >
-    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-  endif
-  "For Neovim > 0.1.5 and Vim > patch 7.4.1799 <https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162>
-  "Based on Vim patch 7.4.1770 (`guicolors` option) <https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd>
-  "<https://github.com/neovim/neovim/wiki/Following-HEAD#20160511>
-  if (has("termguicolors"))
-    set termguicolors
-  endif
-endif
