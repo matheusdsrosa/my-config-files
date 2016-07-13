@@ -78,7 +78,7 @@ endif
 " Set syntax colors
 execute "hi Comment "      . s:ColorMode . "fg=" . s:glacier.xterm0[s:ArrayBit]  . " " . s:ColorMode . "=none"
 execute "hi Constant "     . s:ColorMode . "fg=" . s:glacier.xterm10[s:ArrayBit] . " " . s:ColorMode . "=none"
-execute "hi Identifier "   . s:ColorMode . "fg=" . s:glacier.xterm13[s:ArrayBit] . " " . s:ColorMode . "=none"
+execute "hi Identifier "   . s:ColorMode . "fg=" . s:glacier.xterm4[s:ArrayBit] . " " . s:ColorMode . "=none"
 execute "hi Statement "    . s:ColorMode . "fg=" . s:glacier.xterm13[s:ArrayBit] . " " . s:ColorMode . "=none"
 execute "hi PreProc "      . s:ColorMode . "fg=" . s:glacier.xterm13[s:ArrayBit] . " " . s:ColorMode . "=none"
 execute "hi Function "     . s:ColorMode . "fg=" . s:glacier.xterm12[s:ArrayBit] . " " . s:ColorMode . "=none"
@@ -86,17 +86,18 @@ execute "hi Type "         . s:ColorMode . "fg=" . s:glacier.xterm13[s:ArrayBit]
 execute "hi Number "       . s:ColorMode . "fg=" . s:glacier.xterm10[s:ArrayBit] . " " . s:ColorMode . "=none"
 execute "hi Special "      . s:ColorMode . "fg=" . s:glacier.xterm10[s:ArrayBit] . " " . s:ColorMode . "=none"
 execute "hi String "       . s:ColorMode . "fg=" . s:glacier.xterm11[s:ArrayBit] . " " . s:ColorMode . "=none"
+execute "hi Operator "     . s:ColorMode . "fg=" . s:glacier.xterm13[s:ArrayBit] . " " . s:ColorMode . "=none"
+execute "hi Exception "      . s:ColorMode . "fg=" . s:glacier.xterm9[s:ArrayBit]  . " " . s:ColorMode . "=none"
 
 " Set VIM UI colors
-execute "hi LineNr "       . s:ColorMode . "fg=" . s:glacier.xterm0[s:ArrayBit]  . " " . s:ColorMode . "=none"
-execute "hi NonText "      . s:ColorMode . "fg=" . s:glacier.xterm0[s:ArrayBit]  . " " . s:ColorMode . "=none"
-execute "hi Cursor "       . s:ColorMode . "fg=" . s:glacier.xterm11[s:ArrayBit] . " " . s:ColorMode . "bg=" . s:glacier.xterm5[s:ArrayBit] . " " . s:ColorMode . "=none"
+execute "hi LineNr "       . s:ColorMode . "fg=" . s:glacier.xterm4[s:ArrayBit]  . " " . s:ColorMode . "=none"
+execute "hi NonText "      . s:ColorMode . "fg=" . s:glacier.xterm4[s:ArrayBit]  . " " . s:ColorMode . "=none"
+execute "hi Cursor "       . s:ColorMode . "fg=" . s:glacier.xterm5[s:ArrayBit] . " " . s:ColorMode . "bg=" . s:glacier.xterm5[s:ArrayBit] . " " . s:ColorMode . "=none"
 execute "hi MatchParen "   . s:ColorMode . "fg=" . s:glacier.xterm11[s:ArrayBit] . " " . s:ColorMode . "bg=" . s:glacier.xterm5[s:ArrayBit] . " " . s:ColorMode . "=none"
 execute "hi SpecialKey "   . s:ColorMode . "fg=" . s:glacier.xterm15[s:ArrayBit] . " " . s:ColorMode . "bg=" . s:glacier.xterm4[s:ArrayBit] . " " . s:ColorMode . "=none"
 execute "hi Folded "       . s:ColorMode . "fg=" . s:glacier.xterm15[s:ArrayBit] . " " . s:ColorMode . "bg=" . s:glacier.xterm4[s:ArrayBit] . " " . s:ColorMode . "=none"
 execute "hi StatusLine "   . s:ColorMode . "fg=" . s:glacier.xterm15[s:ArrayBit] . " " . s:ColorMode . "bg=" . s:glacier.xterm4[s:ArrayBit] . " " . s:ColorMode . "=none"
 execute "hi StatusLineNC " . s:ColorMode . "fg=" . s:glacier.xterm15[s:ArrayBit] . " " . s:ColorMode . "bg=" . s:glacier.xterm4[s:ArrayBit] . " " . s:ColorMode . "=none"
-
-" }}
+execute "hi Visual "       . s:ColorMode . "fg=" . s:glacier.xterm15[s:ArrayBit] . " " . s:ColorMode . "bg=" . s:glacier.xterm4[s:ArrayBit] . " " . s:ColorMode . "=none"
 
 set background=dark
