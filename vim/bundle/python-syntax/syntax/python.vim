@@ -163,8 +163,9 @@ syn keyword pythonConditional   if elif else
 " we provide a dummy group here to avoid crashing pyrex.vim.
 syn keyword pythonInclude       import
 syn keyword pythonImport        import
-syn keyword pythonException     try except finally
+syn keyword pythonStatement     try except finally
 syn keyword pythonOperator      and in is not or
+syn match pythonOperator        "[\=\+\*\-\!\^\&\$]" display
 
 syn match pythonStatement   "\<yield\>" display
 syn match pythonImport      "\<from\>" display
@@ -176,9 +177,9 @@ if s:Python2Syntax()
   syn keyword pythonImport      as
   syn match   pythonFunction    "[a-zA-Z_][a-zA-Z0-9_]*" display contained
 else
-  syn keyword pythonStatement   as nonlocal None
+  syn keyword pythonStatement   as nonlocal
   syn match   pythonStatement   "\<yield\s\+from\>" display
-  syn keyword pythonBoolean     True False
+  syn keyword pythonBoolean     True False None
   syn match   pythonFunction    "\%([^[:cntrl:][:space:][:punct:][:digit:]]\|_\)\%([^[:cntrl:][:punct:][:space:]]\|_\)*" display contained
   syn keyword pythonStatement   await
   syn match   pythonStatement   "\<async\s\+def\>" nextgroup=pythonFunction skipwhite
@@ -560,7 +561,7 @@ if version >= 508 || !exists("did_python_syn_inits")
   HiLink pythonBuiltinObj       Structure
   HiLink pythonBuiltinFunc      Function
 
-  HiLink pythonExClass          Structure
+  HiLink pythonExClass          Exception
 
   delcommand HiLink
 endif
