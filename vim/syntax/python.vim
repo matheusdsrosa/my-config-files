@@ -156,8 +156,8 @@ syn keyword pythonStatement     pass raise
 syn keyword pythonStatement     global assert
 syn keyword pythonStatement     lambda
 syn keyword pythonStatement     with
+syn keyword pythonStatement	self cls
 syn keyword pythonStatement     def class nextgroup=pythonFunction skipwhite
-syn keyword pythonStatement	self
 syn keyword pythonRepeat        for while
 syn keyword pythonConditional   if elif else
 " The standard pyrex.vim unconditionally removes the pythonInclude group, so

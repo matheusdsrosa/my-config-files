@@ -1,106 +1,50 @@
-set nocompatible              " required
-filetype off                  " required
+set nocompatible
+filetype off
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
-
-" Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
-
-Plugin 'vim-scripts/indentpython.vim'
-Bundle 'Valloric/YouCompleteMe'
-Plugin 'scrooloose/syntastic'
-" Plugin 'nvie/vim-flake8'
-Plugin 'scrooloose/nerdtree'
-Plugin 'kien/ctrlp.vim'
-Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
-Bundle 'ervandew/supertab'
+" Plugins goes here
 Plugin 'hdima/python-syntax'
-Plugin 'airblade/vim-gitgutter'
 Plugin 'avakhov/vim-yaml'
-Plugin 'JamshedVesuna/vim-markdown-preview'
-Plugin 'pangloss/vim-javascript'
-" Track the engine.
-Plugin 'SirVer/ultisnips'
-
-" Themes
-Plugin 'whatyouhide/vim-gotham'
-Plugin 'sickill/vim-monokai'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'kien/ctrlp.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'itchyny/lightline.vim'
+Plugin 'itchyny/vim-gitbranch'
+Plugin 'nvie/vim-flake8'
 Plugin 'flazz/vim-colorschemes'
-
-" Snippets are separated from the engine. Add this if you want them:
-Plugin 'honza/vim-snippets'
-
+Plugin 'morhetz/gruvbox'
+Plugin 'IN3D/vim-raml'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
 
+" line numbers
+set nu
 
-" Syntastic recommend configs
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+" enable copy/paste from other applications
+set clipboard=unnamed
 
-let g:syntastic_always_populate_loc_list = 0
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_save = 0
-let g:syntastic_check_on_wq = 0
+" enable folding
+set foldmethod=indent
+set foldlevel=99
 
-" YouCompleteMe and UltiSnips compatibility, with the helper of supertab (via http://stackoverflow.com/a/22253548/1626737)
-let g:SuperTabDefaultCompletionType    = '<C-n>'
-let g:SuperTabCrMapping                = 0
-let g:UltiSnipsExpandTrigger           = '<tab>'
-let g:UltiSnipsJumpForwardTrigger      = '<tab>'
-let g:UltiSnipsJumpBackwardTrigger     = '<s-tab>'
-let g:ycm_key_list_select_completion   = ['<C-j>', '<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-k>', '<C-p>', '<Up>']
+" enable folding with spacebar
+nnoremap <space> za
+
+" encoding
+set encoding=utf-8
+
+" make backspace work
+set backspace=indent,eol,start
 
 " split navigations
 nnoremap <C-J> <C-W><C-J> " Ctrl-j move to the split below
 nnoremap <C-K> <C-W><C-K> " Ctrl-k move to the split above
 nnoremap <C-L> <C-W><C-L> " Ctrl-l move to the split to the right
 nnoremap <C-H> <C-W><C-H> " Ctrl-h move to the split to the left
-
-" Show line numbers
-set nu
-
-" Enable copy/pasting stuff from other applications
-set clipboard=unnamed
-
-" Enable folding
-set foldmethod=indent
-set foldlevel=99
-
-" Enable folding with the spacebar
-nnoremap <space> za
-
-" Python PEP8 standards
-au BufNewFile,BufRead *.py set tabstop=4
-au BufNewFile,BufRead *.py set softtabstop=4
-au BufNewFile,BufRead *.py set shiftwidth=4
-au BufNewFile,BufRead *.py set textwidth=100
-au BufNewFile,BufRead *.py set expandtab
-au BufNewFile,BufRead *.py set autoindent
-au BufNewFile,BufRead *.py set fileformat=unix
-
-au BufNewFile,BufRead *.js set tabstop=2
-au BufNewFile,BufRead *.js set softtabstop=2
-au BufNewFile,BufRead *.js set shiftwidth=2
-
-au BufNewFile,BufRead *.html set tabstop=2
-au BufNewFile,BufRead *.html set softtabstop=2
-au BufNewFile,BufRead *.html set shiftwidth=2
-
-au BufNewFile,BufRead *.css set tabstop=2
-au BufNewFile,BufRead *.css set softtabstop=2
-au BufNewFile,BufRead *.css set shiftwidth=2
 
 " Use the below highlight group when displaying bad whitespace is desired.
 highlight BadWhitespace ctermbg=red guibg=red
@@ -111,37 +55,35 @@ au BufRead,BufNewFile *.py,*.pyw match BadWhitespace /^\t\+/
 " Make trailing whitespace be flagged as bad.
 au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 
-" UTF-8
-set encoding=utf-8
-
-" YouCompleteMe configs
-let g:ycm_autoclose_preview_window_after_completion=1
-map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
-
-" Make backspace work properly
-set backspace=indent,eol,start
-
-" python with virtualenv support
-py << EOF
-import os
-import sys
-if 'VIRTUAL_ENV' in os.environ:
-  project_base_dir = os.environ['VIRTUAL_ENV']
-  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
-  execfile(activate_this, dict(__file__=activate_this))
-EOF
-
-" Syntax highlighting for Python
+" configs for python-syntax plugin
 let python_highlight_all=1
 
-syntax enable
+"syntax coloring
 
-colorscheme glacier
+" Solarized
+" let g:solarized_termcolors=256
 
-" Ignore *.pyc files in NERDTree
-let NERDTreeIgnore=['\.pyc$', '\~$']
+syntax on
+set background=dark
+colorscheme gruvbox
 
-set autoread
+" lightline
+set laststatus=2
+set noshowmode
+let g:lightline = {
+      \ 'colorscheme': 'gruvbox',
+      \ 'active': {
+      \   'right': [ [ 'lineinfo' ],
+      \              [ 'percent' ],
+      \              [ 'gitbranch', 'fileformat', 'fileencoding', 'filetype' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'gitbranch#name'
+      \ },
+      \ }
 
-" Ignore some stuff
-let g:syntastic_python_flake8_post_args='--ignore=E501'
+" flake 8
+let g:flake8_show_in_gutter=1
+let g:flake8_show_quickfix=1
+
+autocmd BufWritePost *.py call Flake8()
