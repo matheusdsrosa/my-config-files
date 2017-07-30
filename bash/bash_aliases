@@ -2,7 +2,11 @@
 alias e="cd ~/.virtualenvs"
 alias p="cd ~/Projects"
 alias v="vim"
+alias sublime="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
 alias evimrc="vim ~/.vimrc"
+alias run-alex-tests="./docker/start.sh \"/bin/bash ./docker/launch_tests.sh\" && ./docker/stop.sh"
+
+alias alex-api="cd ~/Projects/cainthus/alex_api; workon alex-api-py36"
 
 # Easier file & directory listing
 alias l='ls -CF' # directories and files in columns
